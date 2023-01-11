@@ -11,4 +11,5 @@
 * Функции minmax() и fit-content()
 * Самостоятельноу изучение свойства text-overflow и white-space в документации CSS. 
 * Реализация диалогового окна согласно макета.
+[https://albinazakirova.github.io/mesto-project-bootcamp/]
 
