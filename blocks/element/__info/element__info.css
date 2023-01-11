@@ -1,0 +1,7 @@
+.element__info {
+  background-color: #FFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 79px;
+}

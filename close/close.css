@@ -1,0 +1,27 @@
+.close {
+  position: absolute;
+  background-image: url(../images/CloseIcon.png);
+  width: 32px;
+  height: 32px;
+  top: -40px;
+  right: -40px;
+  background-size: cover;
+  background-color: transparent;
+  border: none;
+}
+
+.close:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 575px) {
+  .close {
+    width: 20px;
+    height: 20px;
+    top: -36px;
+    right: 0;
+  }
+}
+
+
+

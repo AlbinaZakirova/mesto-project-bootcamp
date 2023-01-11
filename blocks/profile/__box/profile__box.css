@@ -1,0 +1,10 @@
+.profile__box {
+  display: flex;
+}
+
+@media (max-width: 690px) {
+  .profile__box {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

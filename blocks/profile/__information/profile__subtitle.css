@@ -1,0 +1,14 @@
+.profile__subtitle {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.22;
+  font-weight: 400;
+  padding-top: 16px;
+}
+
+@media (max-width: 690px) {
+  .profile__subtitle {
+    font-size: 14px;
+    line-height: 1.17;
+  }
+}

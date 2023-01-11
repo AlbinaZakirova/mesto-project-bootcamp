@@ -1,0 +1,9 @@
+.profile__button {
+  display: flex;
+}
+
+@media (max-width: 690px) {
+  .profile__button {
+    justify-content: center;
+  }
+}
