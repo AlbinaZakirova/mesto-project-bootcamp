@@ -4,11 +4,16 @@
   line-height: 1.22;
   font-weight: 400;
   padding-top: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; 
+  width: 203px;
 }
 
-@media (max-width: 690px) {
+@media (max-width: 575px) {
   .profile__subtitle {
     font-size: 14px;
     line-height: 1.17;
+    text-align: center;
   }
 }

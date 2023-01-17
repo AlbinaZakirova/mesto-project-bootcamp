@@ -7,8 +7,16 @@
   column-gap: 17px;
 }
 
+@media (max-width: 1024px) {
+  .elements {
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}
+
 @media (max-width: 320px) {
   .elements {
     column-gap: 0;
+    padding-top: 36px;
   }
 }

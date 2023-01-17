@@ -5,11 +5,22 @@
   line-height: 1.14;
   font-weight: 500;
   align-self: baseline;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; 
+  width: 294px;
 }
 
-@media (max-width: 690px) {
+@media (max-width: 575px) {
   .profile__title {
+    width: 189px;
     font-size: 27px;
     line-height: 1.33;
+  }
+}
+
+@media (max-width: 320px) {
+  .profile__title {
+    padding-right: 10px;
   }
 }

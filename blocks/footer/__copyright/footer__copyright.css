@@ -6,8 +6,15 @@
   line-height: 1.22;
 }
 
+@media (max-width: 575px) {
+  .footer__copyright {
+    padding-left: 27px;
+  }
+}
+
 @media (max-width: 320px) {
   .footer__copyright {
+    padding-left: 0;
     font-size: 14px;
     line-height: 1.17;
   }

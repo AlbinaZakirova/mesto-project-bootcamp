@@ -4,9 +4,21 @@
   justify-content: space-between;
 }
 
-@media (max-width: 690px) {
+@media (max-width: 1024px) {
+  .profile {
+    max-width: 730px;
+  }
+}
+
+@media (max-width: 768px) {
   .profile {
     justify-content: center;
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 575px) {
+  .profile {
+    max-width: 425px;
   }
 }

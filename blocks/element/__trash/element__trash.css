@@ -1,15 +1,17 @@
-.element__like {
-  background-image: url(../../../images/like.svg);
+.element__trash {
+  position: absolute;
+  background-image: url(../../../images/Trash.svg);
   background-repeat: no-repeat;
-  width: 22px;
+  width: 18px;
   height: 19px;
   background-position: center;
   border-color: transparent;
   background-color: transparent;
-  margin-right: 20px;
   cursor: pointer;
+  top: 20px;
+  right: 20px;
 }
 
-.element__like:hover {
+.element__trash:hover {
   opacity: 0.5;
 }

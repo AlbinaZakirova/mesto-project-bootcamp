@@ -1,4 +1,4 @@
-.profile__addbutton {
+.profile__add-button {
   background-image: url(../../../images/AddButton.png);
   background-color: transparent;
   width: 150px;
@@ -6,16 +6,16 @@
   align-self: center;
   padding: 0;
   border: none;
+  cursor: pointer;
 }
 
-.profile__addbutton:hover {
+.profile__add-button:hover {
   opacity: 0.6;
 }
 
-@media (max-width: 690px) {
-  .profile__addbutton {
+@media (max-width: 768px) {
+  .profile__add-button {
     background-image: url(../../../images/AddButtonBig.png);
-    background-color: transparent;
     justify-content: center;
     width: 282px;
   }

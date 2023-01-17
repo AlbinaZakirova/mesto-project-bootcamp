@@ -8,9 +8,28 @@
   padding-bottom: 60px;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 1024px) {
   .footer {
-    padding-top: 48px;
-    padding-bottom: 36px;
+    max-width: 730px;
   }
 }
+
+@media (max-width: 768px) {
+  .footer {
+    max-width: 530px;
+  }
+}
+
+@media (max-width: 575px) {
+  .footer {
+    max-width: 425px;
+  }
+}
+
+@media (max-width: 320px) {
+  .footer {
+    max-width: 282px;
+    padding: 48px 19px 36px;
+  }
+}
+

@@ -2,7 +2,7 @@
   display: flex;
 }
 
-@media (max-width: 690px) {
+@media (max-width: 575px) {
   .profile__box {
     flex-wrap: wrap;
     justify-content: center;

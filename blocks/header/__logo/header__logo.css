@@ -4,6 +4,12 @@
   padding-bottom: 41px;
 }
 
+@media (max-width: 575px) {
+  .header__logo {
+    padding-left: 27px;
+  }
+}
+
 @media (max-width: 320px) {
   .header__logo {
     width: 103.74px;

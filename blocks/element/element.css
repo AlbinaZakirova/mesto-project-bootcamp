@@ -1,8 +1,4 @@
 .element {
   max-width: 282px;
-  border-radius: 10px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   line-height: 0;
 }

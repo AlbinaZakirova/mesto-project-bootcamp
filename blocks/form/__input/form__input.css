@@ -1,6 +1,6 @@
 .form__input {
   box-sizing: border-box;
-  max-width: 358px;
+  min-width: 358px;
   color: #000;
   font-size: 14px;
   font-weight: 400;
@@ -9,10 +9,15 @@
   padding-bottom: 13px;
   border: none;
   border-bottom: 1px solid #00000033;
+  margin-bottom: 30px;
+}
+
+.form__input:last-of-type {
+  margin-bottom: 48px;
 }
 
 @media (max-width: 575px) {
   .form__input {
-    line-height: 17px;
+    min-width: 238px;
   }
 }
