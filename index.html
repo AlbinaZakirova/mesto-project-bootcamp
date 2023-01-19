@@ -25,14 +25,26 @@
       </div>
     </section>
     <section class="elements page__container">
+      <template id="element-template">
       <div class="element">
+        <div class="element__container">
+          <img class="element__photo" src="#" alt="Фотография">
+          <button type="button" class="element__trash"></button>
+        </div>
+        <div class="element__info">
+          <h2 class="element__info-title"></h2>
+          <button type="button" class="element__like"></button>
+        </div>
+      </div>
+      </template>
+      <!--<div class="element">
         <div class="element__container">
           <img class="element__photo" src="./images/venezia.jpg" alt="Венеция">
           <button type="button" class="element__trash"></button>
         </div>
         <div class="element__info">
           <h2 class="element__info-title">Венеция</h2>
-          <button type="button" class="element__like element__like_active"></button>
+          <button type="button" class="element__like"></button>
         </div>
       </div>
       <div class="element">
@@ -42,7 +54,7 @@
         </div>
         <div class="element__info">
           <h2 class="element__info-title">Амстердам</h2>
-          <button type="button" class="element__like element__like_active"></button>
+          <button type="button" class="element__like"></button>
         </div>
       </div>
       <div class="element">
@@ -52,7 +64,7 @@
         </div>
         <div class="element__info">
           <h2 class="element__info-title">Баштай, Германия</h2>
-          <button type="button" class="element__like element__like_active"></button>
+          <button type="button" class="element__like"></button>
         </div>
       </div>
       <div class="element">
@@ -62,7 +74,7 @@
         </div>
         <div class="element__info">
           <h2 class="element__info-title">Водице, Хорватия</h2>
-          <button type="button" class="element__like element__like_active"></button>
+          <button type="button" class="element__like"></button>
         </div>
       </div>
       <div class="element">
@@ -72,7 +84,7 @@
         </div>
         <div class="element__info">
           <h2 class="element__info-title">Любляна</h2>
-          <button type="button" class="element__like element__like_active"></button>
+          <button type="button" class="element__like"></button>
         </div>
       </div>
       <div class="element">
@@ -82,9 +94,9 @@
         </div>
         <div class="element__info">
           <h2 class="element__info-title">Прага</h2>
-          <button type="button" class="element__like element__like_active"></button>
+          <button type="button" class="element__like"></button>
         </div>
-      </div>
+      </div>-->
     </section>
   </main>
   <footer class="footer page__container"> 
@@ -94,10 +106,10 @@
     <div class="popup__container">
       <button type="button" class="close"></button>
       <h3 class="popup__title">Редактировать профиль</h3>
-      <form name="fields" class="form" method="POST">
-        <input class="form__input" type="text" name="name" placeholder="Жак-Ив Кусто">
-        <input class="form__input" type="text" name="name" placeholder="Исследователь океана">
-        <button class="submit-button" type="submit"></button>
+      <form name="fields" class="form" method="POST" id="profilefields">
+        <input class="form__input form__input_name_fio" type="text" name="fio" placeholder="Жак-Ив Кусто" value="">
+        <input class="form__input form__input_name_profession" type="text" name="profession" placeholder="Исследователь океана" value="">
+        <button class="submit-button submit-button_action_add" type="submit"></button>
       </form>
     </div>
   </div>
@@ -107,13 +119,13 @@
       <button type="button" class="close"></button>
       <h3 class="popup__title">Новое место</h3>
       <form name="fields" class="form" method="POST">
-        <input class="form__input" type="text" name="name" placeholder="Название">
-        <input class="form__input" type="text" name="name" placeholder="Ссылка на картинку">
+        <input class="form__input form__input_place_name" type="text" name="name" placeholder="Название" value="">
+        <input class="form__input form__input_link_photo" type="text" name="name" placeholder="Ссылка на картинку" value="">
         <button class="submit-button" type="submit"></button>
       </form>
     </div>
   </div>
 
-  <script src="./script.js"></script>
+  <script src="./script.js" defer></script>
 </body>
 </html>
