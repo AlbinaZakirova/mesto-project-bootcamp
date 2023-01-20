@@ -1,29 +1,42 @@
 const editPopup = document.getElementById('profile-popup'); //попап редактирования профиля
 const addPopup = document.getElementById('element-popup'); //попап добавления поста
-const editOpenPopupButton = document.querySelectorAll('.profile__edit-button'); //кнопка открытия попапа редактирования профиля
-const addOpenPopupButton = document.querySelectorAll('.profile__add-button'); //кнопки открытия попапа добавления поста
+const popupBackground = document.querySelector('.popup_background'); //popup фотографий
+
+const editOpenPopupButton = document.querySelector('.profile__edit-button'); //кнопка открытия попапа редактирования профиля
+const addOpenPopupButton = document.querySelector('.profile__add-button'); //кнопки открытия попапа добавления поста
 const closePopupButtons = document.querySelectorAll('.close'); //кнопки закрытия попапов
 
-const openPopup = (popup, buttons) => {   //Открыть попап по кнопкам/popup попап, который нужно открыть/buttons кнопки, по которым открывается попап
-  buttons.forEach(btn =>
-    btn.addEventListener('click', e => {
-      e.preventDefault();
-      popup.classList.add('popup_opened');
-    })
-  )
+const openPopupHandler = (popup, button, el) => {   //Открыть попап по кнопкам/popup попап, который нужно открыть/buttons кнопки, по которым открывается попап
+  button.addEventListener('click', e => {
+    e.preventDefault();
+    if (popup === popupBackground) {
+      const popupPhoto = popupBackground.querySelector('.popup__photo');
+      const popupTitle = popupBackground.querySelector('.popup__info-title');
+      popupPhoto.src = el.link;
+      popupTitle.textContent = el.name;
+    }
+    popup.classList.add('popup_opened');
+  })
 };
 
-openPopup(editPopup, editOpenPopupButton);
-openPopup(addPopup, addOpenPopupButton);
+openPopupHandler(editPopup, editOpenPopupButton);
+openPopupHandler(addPopup, addOpenPopupButton);
 
 const closePopup = popup => popup.classList.remove('popup_opened');  //закрытие попапа, который нужно закрыть
 
 closePopupButtons.forEach(button =>
-  button.addEventListener('click', e =>
-    e.target.parentNode.parentNode === editPopup
-      ? closePopup(editPopup)
-      : closePopup(addPopup)
-  )
+  button.addEventListener('click', e => {
+    switch (e.target.parentNode.parentNode) {
+      case editPopup:
+        closePopup(editPopup);
+        break;
+      case addPopup:
+        closePopup(addPopup);
+        break;
+      default:
+        closePopup(popupBackground);
+    }
+  })
 );
 
 //массив с готовыми постами
@@ -54,43 +67,33 @@ let initialCards = [
   }
 ];
 
-
 //добавление нового поста el объект поста {name, link}
 const newPost = el => {
   const elementTemplate = document.getElementById('element-template').content;
   const element = elementTemplate.querySelector('.element').cloneNode(true);
   const elements = document.querySelector('.elements');
   element.querySelector('.element__info-title').textContent = el.name;
-  element.querySelector('.element__photo').src = el.link;
+  const elementPhoto = element.querySelector('.element__photo');
+  elementPhoto.src = el.link;
   elements.prepend(element);
 
   //лайк
-  element.querySelector('.element__like').addEventListener('click', evt => { 
+  element.querySelector('.element__like').addEventListener('click', evt => {
     evt.target.classList.toggle('element__like_active');
   });
 
   //удаление поста
-  element.querySelector('.element__trash').addEventListener('click',  () => { 
+  element.querySelector('.element__trash').addEventListener('click', () => {
     element.remove()
   });
 
-  //popup фотографий
-  const popapBackground = document.querySelector('.popap_background');
-  const popupPhoto = popapBackground.querySelector('.popup__photo');
-  const popupTitle = popapBackground.querySelector('.popup__info-title');
-  const elementPhoto = document.querySelector('.element__photo');
-  elementPhoto.addEventListener('click', () => {
-    popupPhoto.src = el.link;
-    popupTitle.textContent = el.name;
-    popapBackground.classList.add('popup_opened');
-  });
-
+  openPopupHandler(popupBackground, elementPhoto, el);
 }
 
 initialCards.forEach(newPost);
 
 //обработчик отправки формы добавления поста
-const postFormSubmit = e => {  
+const postFormSubmit = e => {
   e.preventDefault();
 
   const name = document.querySelector('.form__input_place_name').value;
@@ -100,7 +103,6 @@ const postFormSubmit = e => {
 
   closePopup(addPopup);
 };
-
 
 //форма добавления поста
 const postForm = document.getElementById('post-form');
@@ -112,6 +114,8 @@ function profileFormSubmit(e) {
 
   const fio = document.querySelector('.form__input_name_fio').value;
   const profession = document.querySelector('.form__input_name_profession').value;
+
+  if (fio.length < 1 || profession.length < 1) return;
 
   const profileTitle = document.querySelector('.profile__title');
   const profileSubtitle = document.querySelector('.profile__subtitle');
