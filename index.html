@@ -37,76 +37,16 @@
         </div>
       </div>
       </template>
-      <!--<div class="element">
-        <div class="element__container">
-          <img class="element__photo" src="./images/venezia.jpg" alt="Венеция">
-          <button type="button" class="element__trash"></button>
-        </div>
-        <div class="element__info">
-          <h2 class="element__info-title">Венеция</h2>
-          <button type="button" class="element__like"></button>
-        </div>
-      </div>
-      <div class="element">
-        <div class="element__container">
-          <img class="element__photo" src="./images/amsterdam.jpg" alt="Амстердам">
-          <button type="button" class="element__trash"></button>
-        </div>
-        <div class="element__info">
-          <h2 class="element__info-title">Амстердам</h2>
-          <button type="button" class="element__like"></button>
-        </div>
-      </div>
-      <div class="element">
-        <div class="element__container">
-          <img class="element__photo" src="./images/bashtai.jpg" alt="Баштай, Германия">
-          <button type="button" class="element__trash"></button>
-        </div>
-        <div class="element__info">
-          <h2 class="element__info-title">Баштай, Германия</h2>
-          <button type="button" class="element__like"></button>
-        </div>
-      </div>
-      <div class="element">
-        <div class="element__container">
-          <img class="element__photo" src="./images/horvatia.jpg" alt="Водице, Хорватия">
-          <button type="button" class="element__trash"></button>
-        </div>
-        <div class="element__info">
-          <h2 class="element__info-title">Водице, Хорватия</h2>
-          <button type="button" class="element__like"></button>
-        </div>
-      </div>
-      <div class="element">
-        <div class="element__container">
-          <img class="element__photo" src="./images/luyblyana.jpg" alt="Любляна">
-          <button type="button" class="element__trash"></button>
-        </div>
-        <div class="element__info">
-          <h2 class="element__info-title">Любляна</h2>
-          <button type="button" class="element__like"></button>
-        </div>
-      </div>
-      <div class="element">
-        <div class="element__container">
-          <img class="element__photo" src="./images/praga.jpg" alt="Прага">
-          <button type="button" class="element__trash"></button>
-        </div>
-        <div class="element__info">
-          <h2 class="element__info-title">Прага</h2>
-          <button type="button" class="element__like"></button>
-        </div>
-      </div>-->
     </section>
   </main>
-  <footer class="footer page__container"> 
+  <footer class="footer page__container">
     <p class="footer__copyright">&#169; 2020 Mesto Russia</p>
   </footer>
   <div class="popup popup_active page__container" id="profile-popup">
     <div class="popup__container">
       <button type="button" class="close"></button>
       <h3 class="popup__title">Редактировать профиль</h3>
-      <form name="fields" class="form" method="POST" id="profilefields">
+      <form name="fields" class="form" method="POST" id="profile-form">
         <input class="form__input form__input_name_fio" type="text" name="fio" placeholder="Жак-Ив Кусто" value="">
         <input class="form__input form__input_name_profession" type="text" name="profession" placeholder="Исследователь океана" value="">
         <button class="submit-button submit-button_action_add" type="submit"></button>
@@ -118,11 +58,18 @@
     <div class="popup__container">
       <button type="button" class="close"></button>
       <h3 class="popup__title">Новое место</h3>
-      <form name="fields" class="form" method="POST">
+      <form name="fields" class="form" method="POST" id="post-form">
         <input class="form__input form__input_place_name" type="text" name="name" placeholder="Название" value="">
         <input class="form__input form__input_link_photo" type="text" name="name" placeholder="Ссылка на картинку" value="">
         <button class="submit-button" type="submit"></button>
       </form>
+    </div>
+  </div>
+  <div class="popup popup_active popap_background" id="photo-popup">
+    <div>
+      <button type="button" class="close"></button>
+      <img class="popup__photo" src="#" alt="Фотография">
+      <h2 class="popup__info-title"></h2>
     </div>
   </div>
 
