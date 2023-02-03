@@ -6,6 +6,7 @@
   border-radius: 2px;
   padding: 0;
   cursor: pointer;
+  margin-top: 31px;
 }
 
 .submit-button:hover {
@@ -19,3 +20,4 @@
     height: 46px;
   }
 }
+

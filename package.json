@@ -1,0 +1,39 @@
+{
+  "name": "mesto-project-bootcamp",
+  "version": "1.0.0",
+  "description": "**Краткое описание.** Данный проект представляет собой одностраничный сайт.\r Выполнение проектной работы будет проведено в несколько этапов. Первый из них заключался в верстке \r (была сверстана страница с применением знаний, полученных в ходе прохождения четырех обучающих спринтов, усвоенному\r в ходе их прохождения теоретическому материалу и двух выполненных ранее проектных работ.) \r Первый   этп проектной работы был выполнена с целью практики и изучения ряда тем:\r * Флекс-бокс вёртска.\r * Grid Layout.\r * Параметры auto-fill и auto-fit.\r * Функции minmax() и fit-content().\r * Самостоятельноу изучение свойства text-overflow и white-space в документации CSS .\r * Реализация диалогового окна согласно макета.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlbinaZakirova/mesto-project-bootcamp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlbinaZakirova/mesto-project-bootcamp/issues"
+  },
+  "homepage": "https://github.com/AlbinaZakirova/mesto-project-bootcamp#readme",
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.3",
+    "cssnano": "^5.1.14",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "postcss-loader": "^7.0.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "dependencies": {
+    "core-js": "^3.27.2"
+  }
+}

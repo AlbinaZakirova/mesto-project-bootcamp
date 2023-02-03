@@ -1,0 +1,16 @@
+.form__button_invalid {
+  width: 358px;
+  height: 50px;
+  border: none;
+  border-radius: 2px;
+  padding: 0;
+  cursor: pointer;
+  background-image: url(../../../images/SubmitButtonInvalid.png);
+}
+
+@media (max-width: 575px) {
+  .form__button_invalid {
+    width: 238px;
+    height: 46px;
+  }
+}
