@@ -1,7 +1,9 @@
 import {submitPostForm } from './card.js'
 import {enableValidation} from './validate.js'
 import {editPopup} from './utils.js'
-import './pages/index.css';
+import {closePopup} from './modal.js'
+
+import '../pages/index.css';
 const postForm = document.getElementById('post-form');
 postForm.addEventListener('submit', submitPostForm);
 
