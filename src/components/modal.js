@@ -3,8 +3,11 @@ export {handleClosePopup, closePopupOverlay, closePopupEsc }
 export const buttonOpenPopupProfile = document.querySelector('.profile__edit-button'); //кнопка открытия попапа редактирования профиля
 export const buttonOpenAddPopup = document.querySelector('.profile__add-button'); //кнопки открытия попапа добавления поста
 
-export const closePopup = popup => popup.classList.remove('popup_opened');  //закрытие попапа
-import {editPopup, addPopup, popupBackground, openPopup} from './utils.js'
+export const closePopup = popup => {
+  popup.classList.remove('popup_opened');
+  popup.querySelector('.form').reset();
+}  //закрытие попапа
+import {editPopup, addPopup, popupBackground, openPopup, openPopupProfile} from './utils.js'
 
 
 
@@ -46,7 +49,5 @@ document.addEventListener('keydown', e => closePopupEsc(e.key, editPopup));
 document.addEventListener('keydown', e => closePopupEsc(e.key, addPopup)); 
 document.addEventListener('keydown', e => closePopupEsc(e.key, popupBackground)); 
 
-buttonOpenPopupProfile.addEventListener('click', () => openPopup(editPopup))
+buttonOpenPopupProfile.addEventListener('click', () => openPopupProfile())
 buttonOpenAddPopup.addEventListener('click', () => openPopup(addPopup))
-
-

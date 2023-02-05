@@ -34,7 +34,6 @@ function checkInputValidity(inputElement, formElement, config) {
 }
 
 function setEventListener(formElement, config) {
-
   const inputList = formElement.querySelectorAll(config.inputSelector);
   const submitButtonElement = formElement.querySelector(config.submitButtonSelector);
 

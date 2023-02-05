@@ -8,10 +8,10 @@ const postForm = document.getElementById('post-form');
 postForm.addEventListener('submit', submitPostForm);
 
 //обработчик отправки формы редактирования профиля
-const profileTitle = document.querySelector('.profile__title');
-const profileSubtitle = document.querySelector('.profile__subtitle');
-const fio = document.querySelector('.form__input_name_fio');
-const profession = document.querySelector('.form__input_name_profession');
+export const profileTitle = document.querySelector('.profile__title');
+export const profileSubtitle = document.querySelector('.profile__subtitle');
+export const fio = document.querySelector('.form__input_name_fio');
+export const profession = document.querySelector('.form__input_name_profession');
 
 function submitProfileForm(e) {
   e.preventDefault();
