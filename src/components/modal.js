@@ -1,21 +1,36 @@
-export {handleClosePopup, closePopupOverlay, closePopupEsc }
-
+export {handleClosePopup, closePopupOverlay /*closePopupEsc*/ }
 export const buttonOpenPopupProfile = document.querySelector('.profile__edit-button'); //кнопка открытия попапа редактирования профиля
-export const buttonOpenAddPopup = document.querySelector('.profile__add-button'); //кнопки открытия попапа добавления поста
+export const buttonOpenAddPopup = document.querySelector('.profile__add-button'); //кнопка открытия попапа добавления поста
 
-export const closePopup = popup => {
+
+import {editPopup, addPopup, popupBackground, openPopupProfile} from './utils.js'
+
+//Функция открытия попапов
+export function openPopup(popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+}
+
+//Функция закрытие попапов
+export function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  popup.querySelector('.form').reset();
-}  //закрытие попапа
-import {editPopup, addPopup, popupBackground, openPopup, openPopupProfile} from './utils.js'
+  document.removeEventListener('keydown', closePopupEsc)
+}
 
+//функция  закрытия попапа через Esc 
+function closePopupEsc (event) {
+  if (event.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+}
 
-
-//Функция закрытия попапов по кнопке/
-function handleClosePopup(e, modal ) {    
+//Функция закрытия попапов по кнопке
+function handleClosePopup(e, modal) {   
+  e.preventDefault(); 
   const target = e.target;
   if (target.classList.contains('popup') || target.classList.contains('close')) {
-    closePopup(modal)
+    closePopup(modal);
   }
 }
 
@@ -24,11 +39,10 @@ addPopup.addEventListener('click', (e) => handleClosePopup(e,addPopup));
 popupBackground.addEventListener('click', (e) => handleClosePopup(e,popupBackground));
 
 
-
 //функция закрытия попапа через Overlay 
-function closePopupOverlay (e, popup) {
+function closePopupOverlay (e, modal) {
   if (e.target.classList.contains('popup_opened')) {
-    closePopup(popup);
+    closePopup(modal);
   }
 }
  
@@ -38,16 +52,8 @@ document.addEventListener('click', e => closePopupOverlay(e, popupBackground));
 
 
 
-//функция  закрытия попапа через Esc 
-function closePopupEsc (e, popup) {
-  if (e === 'Escape') {
-    closePopup(popup);
-  }
-}
 
-document.addEventListener('keydown', e => closePopupEsc(e.key, editPopup));
-document.addEventListener('keydown', e => closePopupEsc(e.key, addPopup)); 
-document.addEventListener('keydown', e => closePopupEsc(e.key, popupBackground)); 
 
-buttonOpenPopupProfile.addEventListener('click', () => openPopupProfile())
+buttonOpenPopupProfile.addEventListener('click', () => openPopupProfile(editPopup))
 buttonOpenAddPopup.addEventListener('click', () => openPopup(addPopup))
+

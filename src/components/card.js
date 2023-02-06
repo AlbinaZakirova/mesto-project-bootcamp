@@ -1,5 +1,5 @@
-import {addPopup, popupBackground, openPopup} from './utils.js'
-import {closePopup} from './modal.js'
+import {addPopup, popupBackground} from './utils.js'
+import {closePopup, openPopup} from './modal.js'
 
 
 //массив с готовыми постами  

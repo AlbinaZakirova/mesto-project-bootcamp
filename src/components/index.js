@@ -23,7 +23,7 @@ function submitProfileForm(e) {
   closePopup(editPopup);
 }
 
-//форма редактирования профиля
+//форма редактирования профиля 
 const profileForm = document.getElementById('profile-form');
 profileForm.addEventListener('submit', submitProfileForm);
 
