@@ -12,7 +12,6 @@ export {closePopupOverlay, closePopupEsc}
 
 //Функция закрытия попапов по кнопке
 function handleClosePopup(e, modal) {
-  e.preventDefault();
   const target = e.target;
   if (target.classList.contains('close')) {
     closePopup(modal);
