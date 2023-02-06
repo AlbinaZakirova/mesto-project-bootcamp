@@ -1,9 +1,10 @@
 import {submitPostForm } from './card.js'
 import {enableValidation} from './validate.js'
-import {editPopup} from './utils.js'
-import {closePopup} from './modal.js'
+import {closePopup} from "./utils";
+import {editPopup} from "./modal";
 
 import '../pages/index.css';
+
 const postForm = document.getElementById('post-form');
 postForm.addEventListener('submit', submitPostForm);
 
@@ -37,3 +38,4 @@ const configSelector = {
 }
 
 enableValidation(configSelector);
+

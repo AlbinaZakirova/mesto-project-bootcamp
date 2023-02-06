@@ -1,12 +1,15 @@
-import {fio, profession, profileSubtitle, profileTitle} from "./index.js";
+import {closePopupEsc} from "./modal";
 
-export const editPopup = document.getElementById('profile-popup'); //попап редактирования профиля
-export const addPopup = document.getElementById('element-popup'); //попап добавления поста
-export const popupBackground = document.querySelector('.popup_background'); //popup фотографий
-
-
-export const openPopupProfile = popup => {
-  openPopup(popup)
-  fio.value = profileTitle.textContent;
-  profession.value = profileSubtitle.textContent;
+//Функция открытия попапов
+export function openPopup(popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
 }
+
+//Функция закрытие попапов
+export function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc)
+}
+
+

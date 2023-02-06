@@ -1,8 +1,7 @@
-import {addPopup, popupBackground} from './utils.js'
-import {closePopup, openPopup} from './modal.js'
+import {closePopup, openPopup} from "./utils";
+import {addPopup, popupBackground} from "./modal";
 
-
-//массив с готовыми постами  
+//массив с готовыми постами
 export const initialCards = [
   {
     name: 'Архыз',
