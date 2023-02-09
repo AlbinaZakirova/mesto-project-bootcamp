@@ -1,0 +1,13 @@
+.profile__edit-img {
+  background: none;
+  width: 100%;
+  height: 100%;
+  /*color: transparent;*/
+}
+
+.profile__edit-img:hover {
+  background-image: url(../../../images/Vector.png);
+  background-repeat: no-repeat;
+  background-position: center;
+
+}

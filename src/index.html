@@ -12,7 +12,10 @@
   <main class="content">
     <section class="profile page__container" >
       <div class="profile__box">
-        <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар с портретом Жак-Ива Кусто">
+        <div class="profile__avatar-box">
+          <button class="profile__edit-img"></button>
+          <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар">
+        </div>
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button type="button" class="profile__edit-button"></button>
@@ -99,6 +102,25 @@
         <button class="submit-button submit-button_action_add" type="submit"></button>
       </form>
     </div>
+  </div>
+  <div class="popup popup_active page__container" id="avatar-popup">
+    <div class="popup__container">
+      <button type="button" class="close"></button>
+      <h3 class="popup__title">Обновить аватар</h3>
+      <form name="fields" class="form" method="POST" id="avatar-form" novalidate>
+        <input 
+        class="form__input form__input_link_photo" 
+        type="url" 
+        name="name-link" 
+        placeholder="Ссылка на аватар" 
+        value=""
+        required>
+        <span id="name-link-error" class="error"></span>
+        <button class="submit-button submit-button_action_add" type="submit"></button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_active page__container" id="shure-popup">
   </div>
   <div class="popup popup_active popup_background" id="photo-popup">
     <div class="popup__position">

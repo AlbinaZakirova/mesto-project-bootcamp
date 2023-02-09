@@ -3,12 +3,15 @@ import {enableValidation} from './validate.js'
 import {closePopup} from "./utils";
 import {editPopup} from "./modal";
 
+
 import '../pages/index.css';
+import './api.js'
+
 
 const postForm = document.getElementById('post-form');
 postForm.addEventListener('submit', submitPostForm);
 
-//обработчик отправки формы редактирования профиля
+//обработчик отправки формы редактирования профиля 
 export const profileTitle = document.querySelector('.profile__title');
 export const profileSubtitle = document.querySelector('.profile__subtitle');
 export const fio = document.querySelector('.form__input_name_fio');

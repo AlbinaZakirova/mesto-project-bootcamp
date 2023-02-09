@@ -40,3 +40,5 @@
 @import url(../blocks/form/__input/_state/form__input_state_invalid.css);
 @import url(../blocks/form/__button/form__button_invalid.css);
 @import url(../blocks/error/error.css);
+@import url(../blocks/profile/__avatar-box/profile__avatar-box.css);
+@import url(../blocks/profile/__edit-img/profile__edit-img.css);

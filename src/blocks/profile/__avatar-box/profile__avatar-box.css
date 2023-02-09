@@ -1,0 +1,15 @@
+.profile__avatar-box {
+  position: relative;
+  max-width: 120px;
+  max-height: 120px;
+  border-radius: 50%;
+}
+
+.profile__avatar-box:hover .profile__edit-img {
+  opacity: 1;
+}
+
+.profile__avatar-box:hover .profile__avatar {
+  opacity: 0.2;
+  cursor: pointer;
+}
