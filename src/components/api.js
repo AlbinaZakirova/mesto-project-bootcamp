@@ -13,7 +13,7 @@ function onResponse(res) {
   return res.ok ? res.json() : res.json().then((data) => Promise.reject(data));
 }
 
-//функция для получения всех карточек 
+//4. Загрузка карточек с сервера                          РЕАЛИЗОВАНО
 export function getAllCards() {
   return fetch(`${config.url}/cards`, {
     method: "GET",
@@ -21,7 +21,21 @@ export function getAllCards() {
   }).then (onResponse)
 } 
 
-//функция создания карточки
+//5. Редактирование профиля                               НАПИСАН ТОЛЬКО ПРОМИС, РЕАЛИЗОВАТЬ НЕ МОГУ
+export function getEditprofile() {
+  return fetch(`${config.url}/users/me`, {
+    method: "PATCH",
+    headers: config.headers,
+    body: JSON.stringify(
+      {
+        name: fio.value,
+        about: profession.value
+      }
+    )  
+  }).then (onResponse)
+} 
+
+//6. Добавление новой карточки                           РЕАЛИЗОВАНО
 export function addCard(body) {
   return fetch(`${config.url}/cards`, {
     method: "POST",
@@ -31,7 +45,7 @@ export function addCard(body) {
 }
 
 
-//функция удаления карточки 
+//8. Удаление карточки                                  РЕАЛИЗОВАНО ЧАСТИЧНО 
 export function removeCard(cardId) {
   return fetch(`${config.url}/cards/${cardId}`, {
     method: "DELETE",
@@ -41,7 +55,7 @@ export function removeCard(cardId) {
 } 
 
  
-//запрос данных пользователя
+//3. Загрузка информации о пользователе с сервера        РЕАЛИЗОВАНО
 export function getUserInfo() {
   return fetch(`${config.url}/users/me`, {
     headers: config.headers
@@ -49,7 +63,8 @@ export function getUserInfo() {
   .then(onResponse)
 }
 
-export function getAllInform () {
+
+export function getAllInform () {                        //СКАЗАЛИ ЧТО ЭТО ОБЯЗАТЕЛЬНО, ЧТОБЫ НЕ БЫЛО СБОЯЕСЛИ ВЫЗОВЫ ПРИДУТ НЕ ПРАВИЛЬНО ПО ОЧЕРЕДНОСТИ
   return Promise.all([getAllCards(), getUserInfo()])
 }
 

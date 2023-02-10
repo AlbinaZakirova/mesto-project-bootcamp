@@ -71,7 +71,7 @@ allLikeView(data.likes, userID);*/
 
 
 
-//удаление поста ПОКА УДАЛЯЮ ЛЮБОЙ, А НАДО, ЧТОБЫ СВОЙ
+//8. Удаление карточки ПОКА УДАЛЯЮ ЛЮБУЮ, А НАДО, ЧТОБЫ ТОЛЬКО СВОИ
 const elementTrash = element.querySelector('.element__trash');
 elementTrash.addEventListener('click', () => {
   
@@ -101,7 +101,8 @@ elementPhoto.addEventListener('click', e => {
 //вставить карточку в разметку 
 export const addNewPost = (data) => elements.append(createCard(data))
 
-//отправка всех карточек на сервер
+//3. Загрузка информации о пользователе с сервера 
+//4. Загрузка карточек с сервера
 function renderInitialCards() {
   getAllInform()
     .then(([dataCards, dataUser]) => {
@@ -119,7 +120,7 @@ export const name = document.querySelector('.form__input_place_name');
 export const link = document.querySelector('.form__input_link_photo');
 
 
-//обработчик отправки формы добавления поста                                       РАБОТАЕТ, НО ЗАГРУЖАЕТ ПОСТ ТОЛЬКО ПОСЛЕ ПЕРЕЗАГРУЗКИ СТРАНИЦЫ
+//6. Добавление новой карточки                                      РАБОТАЕТ, НО НЕ КОРРЕКТНО, ЗАГРУЖАЕТ ПОСТ ТОЛЬКО ПОСЛЕ ПЕРЕЗАГРУЗКИ СТРАНИЦЫ
 export function submitPostForm(e) {
   e.preventDefault();
   addCard({name: name.value, link: link.value}) 

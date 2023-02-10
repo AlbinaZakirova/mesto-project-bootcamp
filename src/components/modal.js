@@ -5,6 +5,7 @@ export const editPopup = document.getElementById('profile-popup'); //попап 
 export const addPopup = document.getElementById('element-popup'); //попап добавления поста
 export const imagePopup = document.querySelector('.popup_background'); //popup фотографий
 
+
 export const buttonOpenPopupProfile = document.querySelector('.profile__edit-button'); //кнопка открытия попапа редактирования профиля
 export const buttonOpenAddPopup = document.querySelector('.profile__add-button'); //кнопка открытия попапа добавления поста
 
