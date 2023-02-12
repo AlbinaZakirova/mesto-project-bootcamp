@@ -4,10 +4,13 @@ import {closePopup, openPopup} from './utils.js'
 export const editPopup = document.getElementById('profile-popup'); //попап редактирования профиля
 export const addPopup = document.getElementById('element-popup'); //попап добавления поста
 export const imagePopup = document.querySelector('.popup_background'); //popup фотографий
+export const avatarPopup = document.getElementById('avatar-popup');
 
 
 export const buttonOpenPopupProfile = document.querySelector('.profile__edit-button'); //кнопка открытия попапа редактирования профиля
 export const buttonOpenAddPopup = document.querySelector('.profile__add-button'); //кнопка открытия попапа добавления поста
+export const buttonOpenAvatarPopup = document.querySelector('.profile__edit-img'); //кнопка открытия попапа добавления поста
+
 
 export {closePopupOverlay, closePopupEsc}
 
@@ -43,12 +46,15 @@ export const openPopupProfile = popup => {
 editPopup.addEventListener('click', (e) => handleClosePopup(e, editPopup));
 addPopup.addEventListener('click', (e) => handleClosePopup(e, addPopup));
 imagePopup.addEventListener('click', (e) => handleClosePopup(e, imagePopup));
+avatarPopup.addEventListener('click', (e) => handleClosePopup(e, avatarPopup));
 
 
 document.addEventListener('click', e => closePopupOverlay(e, editPopup));
 document.addEventListener('click', e => closePopupOverlay(e, addPopup));
 document.addEventListener('click', e => closePopupOverlay(e, imagePopup));
+document.addEventListener('click', e => closePopupOverlay(e, avatarPopup));
 
 
 buttonOpenPopupProfile.addEventListener('click', () => openPopupProfile(editPopup))
 buttonOpenAddPopup.addEventListener('click', () => openPopup(addPopup))
+buttonOpenAvatarPopup.addEventListener('click',() => openPopup(avatarPopup))

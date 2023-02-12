@@ -4,8 +4,8 @@
 const config = {
   url: 'https://mesto.nomoreparties.co/v1/wbf-cohort-5',
   headers: {
-      "Content-Type": "application/json",
-      "authorization": "35b4ce21-9513-4e5d-a9e0-99c0cc9fd336"
+    "Content-Type": "application/json",
+    "authorization": "35b4ce21-9513-4e5d-a9e0-99c0cc9fd336"
   }
 }
 
@@ -13,29 +13,29 @@ function onResponse(res) {
   return res.ok ? res.json() : res.json().then((data) => Promise.reject(data));
 }
 
-//4. Загрузка карточек с сервера                          РЕАЛИЗОВАНО
+//4. Загрузка карточек с сервера                          
 export function getAllCards() {
   return fetch(`${config.url}/cards`, {
     method: "GET",
-    headers: config.headers   
-  }).then (onResponse)
-} 
+    headers: config.headers
+  }).then(onResponse)
+}
 
-//5. Редактирование профиля                               НАПИСАН ТОЛЬКО ПРОМИС, РЕАЛИЗОВАТЬ НЕ МОГУ
-export function getEditprofile() {
+//5. Редактирование профиля                                 
+export function getEditProfile(fio, profession) {
   return fetch(`${config.url}/users/me`, {
     method: "PATCH",
     headers: config.headers,
     body: JSON.stringify(
       {
-        name: fio.value,
-        about: profession.value
+        name: fio,
+        about: profession
       }
-    )  
-  }).then (onResponse)
-} 
+    )
+  }).then(onResponse)
+}
 
-//6. Добавление новой карточки                           РЕАЛИЗОВАНО
+//6. Добавление новой карточки                           
 export function addCard(body) {
   return fetch(`${config.url}/cards`, {
     method: "POST",
@@ -45,26 +45,42 @@ export function addCard(body) {
 }
 
 
-//8. Удаление карточки                                  РЕАЛИЗОВАНО ЧАСТИЧНО 
+//8. Удаление карточки                                    
 export function removeCard(cardId) {
   return fetch(`${config.url}/cards/${cardId}`, {
     method: "DELETE",
     headers: config.headers
 
-  }).then (onResponse)
-} 
+  }).then(onResponse)
+}
 
- 
-//3. Загрузка информации о пользователе с сервера        РЕАЛИЗОВАНО
+
+//3. Загрузка информации о пользователе с сервера        
 export function getUserInfo() {
   return fetch(`${config.url}/users/me`, {
     headers: config.headers
   })
-  .then(onResponse)
+    .then(onResponse)
 }
 
+//9. Лайки
+export function setLike(cardId, isLiked) {
+  return fetch(`${config.url}/cards/likes/${cardId}`,{
+    method: isLiked ? "DELETE" : "PUT",
+    headers: config.headers
+  }).then(onResponse)
+}
 
-export function getAllInform () {                        //СКАЗАЛИ ЧТО ЭТО ОБЯЗАТЕЛЬНО, ЧТОБЫ НЕ БЫЛО СБОЯЕСЛИ ВЫЗОВЫ ПРИДУТ НЕ ПРАВИЛЬНО ПО ОЧЕРЕДНОСТИ
+//10. Обновление аватара пользователя
+export function changeAvatar(link) {
+  return fetch(`${config.url}/users/me/avatar`, {
+    method: "PATCH",
+    headers: config.headers,
+    body: JSON.stringify({avatar: link})
+  }).then(onResponse)
+}
+
+export function getAllInform() {                        
   return Promise.all([getAllCards(), getUserInfo()])
 }
 

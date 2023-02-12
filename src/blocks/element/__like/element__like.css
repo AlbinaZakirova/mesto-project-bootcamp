@@ -1,13 +1,22 @@
 .element__like {
-  background-image: url(../../../images/like.svg);
-  background-repeat: no-repeat;
-  width: 30px;
-  height: 19px;
-  background-position: center;
-  border-color: transparent;
   background-color: transparent;
+  border: none;
   margin-right: 20px;
   cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.element__like-heart {
+  width: 30px;
+  height: 19px;
+  margin-bottom: 5px;
+
+  background-image: url(../../../images/like.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .element__like:hover {

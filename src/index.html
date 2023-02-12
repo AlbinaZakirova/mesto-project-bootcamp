@@ -13,13 +13,13 @@
     <section class="profile page__container" >
       <div class="profile__box">
         <div class="profile__avatar-box">
-          <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар">
+          <img class="profile__avatar" src="#" alt="Аватар">
           <button class="profile__edit-img"></button>
         </div>
         <div class="profile__info">
-          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <h1 class="profile__title"></h1>
           <button type="button" class="profile__edit-button"></button>
-          <p class="profile__subtitle">Исследователь океана</p>
+          <p class="profile__subtitle"></p>
         </div>
       </div>
       <div class="profile__button">
@@ -35,7 +35,10 @@
         </div>
         <div class="element__info">
           <h2 class="element__info-title"></h2>
-          <button type="button" class="element__like"></button>
+          <button type="button" class="element__like">
+            <span class="element__like-heart"></span>
+            <span class="element__like-count"></span>
+          </button>
         </div>
       </div>
       </template>
@@ -119,8 +122,6 @@
         <button class="submit-button submit-button_action_add" type="submit"></button>
       </form>
     </div>
-  </div>
-  <div class="popup popup_active page__container" id="shure-popup">
   </div>
   <div class="popup popup_active popup_background" id="photo-popup">
     <div class="popup__position">
