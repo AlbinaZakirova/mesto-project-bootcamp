@@ -47,7 +47,6 @@ export const createCard = (data) => {
   const elementPhoto = element.querySelector('.element__photo');
   elementPhoto.src = data.link;
   elementPhoto.alt = data.name;
-  // console.log('data >>> ', data)
 
 
 //лайк
@@ -57,7 +56,6 @@ export const createCard = (data) => {
 
   const cardId = data._id;
 
-  // const updateIsLiked = data => data.likes.some(user => user._id === userID);
   const updateLikes = count => elementCount.textContent = count;
   let isLiked = data.likes.some(user => user._id === userID);
 
