@@ -3,11 +3,14 @@ import {handleSubmit, updateAvatar, updateProfile} from "./utils";
 import {addNewPost} from "./card";
 import {name, link, addPopup, fio, profession, editPopup, avatarPopup} from "./constants";
 
-//функция отправки формы создания карточки
+//функция отправки формы создания карточки 
 function submitPostForm(evt) {
   function makeRequest() {
     return addCard({name: name.value, link: link.value})
-      .then(res => addNewPost({name: res.name, link: res.link}))
+      .then((res) => addNewPost(res))
+      .catch((error) => {
+        console.log(error);
+      })
   }
   handleSubmit(makeRequest, evt, addPopup);
 }
@@ -19,7 +22,10 @@ postForm.addEventListener('submit', submitPostForm);
 function submitProfileForm(evt) {
   function makeRequest() {
     return getEditProfile(fio.value, profession.value)
-      .then(res => updateProfile(res.name, res.about));
+      .then(res => updateProfile(res.name, res.about))
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   handleSubmit(makeRequest, evt, editPopup);
@@ -34,6 +40,9 @@ function submitAvatarForm(evt) {
   function makeRequest() {
     return changeAvatar(avatarLink)
       .then(res => updateAvatar(res.avatar))
+      .catch((error) => {
+        console.log(error);
+      })
   }
 
   handleSubmit(makeRequest, evt, avatarPopup);
