@@ -10,7 +10,7 @@ import {
 
 export {closePopupOverlay, closePopupEsc}
 
-//Функция открытия попапов 
+//Функция открытия попапов
 export function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);

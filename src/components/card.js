@@ -23,8 +23,9 @@ const createCard = (data) => {
 
   const cardId = data._id;
 
-  const updateLikes = count => elementCount.textContent = count;  
+  const updateLikes = count => elementCount.textContent = count;
   let isLiked = data.likes.some(user => user._id === userID);
+
   elementLike.addEventListener('click', evt => {
     evt.preventDefault();
     setLike(cardId, isLiked)

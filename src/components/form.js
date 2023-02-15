@@ -15,7 +15,7 @@ const postForm = document.getElementById('post-form');
 postForm.addEventListener('submit', submitPostForm);
 
 
-// функиця отправки формы редактирования профиля 
+// функиця отправки формы редактирования профиля
 function submitProfileForm(evt) {
   function makeRequest() {
     return getEditProfile(fio.value, profession.value)

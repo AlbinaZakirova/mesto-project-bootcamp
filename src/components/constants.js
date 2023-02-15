@@ -20,4 +20,4 @@ export const link = document.querySelector('.form__input_link_photo');
 export const profileTitle = document.querySelector('.profile__title');
 export const profileSubtitle = document.querySelector('.profile__subtitle');
 export const fio = document.querySelector('.form__input_name_fio');
-export const profession = document.querySelector('.form__input_name_profession'); 
+export const profession = document.querySelector('.form__input_name_profession');

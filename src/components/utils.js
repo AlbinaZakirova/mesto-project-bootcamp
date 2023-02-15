@@ -35,7 +35,8 @@ export function handleSubmit(request, evt, popup, loadingText = "Сохране�
     .catch(err => console.error(`Ошибка: ${err}`))
     .finally(() => {
       renderLoading(false, submitButton, initialText);
-      setTimeout(() => closePopup(popup), 1500);
+      setTimeout(() => closePopup(popup), 1500); 
+    });
 }
 
 
