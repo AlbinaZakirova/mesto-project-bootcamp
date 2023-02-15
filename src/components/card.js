@@ -1,7 +1,9 @@
 import {closePopup, openPopup} from "./utils";
-import {changeTextOnSubmitButton} from "./index";
+// import {changeTextOnSubmitButton} from "./index";
 import {addPopup, imagePopup} from "./modal";
 import {addCard, removeCard, getAllInform, setLike} from "./api";
+import { submitButtons} from "./index";
+
 
 const popupPhoto = imagePopup.querySelector('.popup__photo');
 const popupTitle = imagePopup.querySelector('.popup__info-title');
@@ -60,17 +62,24 @@ export const createCard = (data) => {
   let isLiked = data.likes.some(user => user._id === userID);
 
   elementLike.addEventListener('click', evt => {
-    elementHeart.classList.toggle('element__like-heart_active');
-    setLike(cardId, isLiked).then(res => {
-      isLiked = res.likes.some(user => user._id === userID)
-      updateLikes(res.likes.length)
-    });
+    evt.preventDefault();
+    //Было тут, ревьюер сказал перенести в then
+    setLike(cardId, isLiked)
+      .then(res => {
+        elementHeart.classList.toggle('element__like-heart_active'); //я об этой строке, окрашивающей лайк
+        isLiked = res.likes.some(user => user._id === userID)
+        updateLikes(res.likes.length)
+        
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   });
 
   isLiked && elementHeart.classList.add('element__like-heart_active');
   updateLikes(data.likes.length);
 
-//8. Удаление карточки 
+//8. Удаление карточки  
   const elementTrash = element.querySelector('.element__trash');
   if (data.owner._id === userID) {
     elementTrash.addEventListener('click', () => {
@@ -101,7 +110,7 @@ export const createCard = (data) => {
 }
 
 //вставить карточку в разметку 
-export const addNewPost = (data) => elements.prepend(createCard(data))
+export const addNewPost = (data) => elements.prepend(createCard(data));
 
 //3. Загрузка информации о пользователе с сервера 
 //4. Загрузка карточек с сервера
@@ -109,7 +118,7 @@ function renderInitialCards() {
   getAllInform()
     .then(([dataCards, dataUser]) => {
       userID = dataUser._id;
-      dataCards.reverse().forEach(addNewPost)
+      dataCards.reverse().forEach(addNewPost);
     })
     .catch((error) => {
       console.log(error);
@@ -138,3 +147,92 @@ export function submitPostForm(e) {
   closePopup(addPopup);
 }
 
+
+//ВАРИАНТ С ВЕБИНАРА
+// function setButtonText ({button, text, disabled}) {
+//   if(!disabled) {
+//     button.disabled = false
+//   } else {
+//     button.disabled = 'disabled'
+//   }
+//   button.textContent = text;
+// };
+
+//  export function submitPostForm(e) {
+//    e.preventDefault();
+//    setButtonText({
+//      button: submitButtons,
+//      text: 'Сохраняем...',
+//      disabled: true,
+//    })
+//    addCard({name: name.value, link: link.value})
+//      .then(res => {
+//        addNewPost({name: res.name, link: res.link});
+       
+//      })
+//      .then(closePopup(addPopup))
+//      .catch((error) => {
+//        console.log(error);
+//      })
+//      .finally (() => {
+//        setButtonText({
+//          button: submitButtons,
+//          text: 'Создать',
+//          disabled: false,
+//        })
+//      })
+     
+//  }
+
+ 
+
+//А ЭТО НАПИСАЛ РЕВЬЮЕР 
+// // можно сделать универсальную функцию управления текстом кнопки с 3 и 4 необязательными аргументами
+// export function renderLoading(isLoading, button, buttonText='Сохранить', loadingText='Сохранение...') {
+//   if (isLoading) {
+//     button.textContent = loadingText
+//   } else {
+//     button.textContent = buttonText
+//   }
+// }
+
+// // можно сделать универсальную функцию, которая принимает функцию запроса, объект события и текст во время загрузки
+// function handleSubmit(request, evt, loadingText = "Сохранение...") {
+//  // всегда нужно предотвращать перезагрузку формы при сабмите
+//   evt.preventDefault();
+
+//   // универсально получаем кнопку сабмита из `evt`
+//   const submitButton = evt.submitter;
+//   // записываем начальный текст кнопки до вызова запроса
+//   const initialText = submitButton.textContent;
+//   // изменяем текст кнопки до вызова запроса
+//   renderLoading(true, submitButton, initialText, loadingText);
+//   request()
+//     .then(() => {
+//       // любую форму нужно очищать после успешного ответа от сервера
+//       // а также `reset` может запустить деактивацию кнопки сабмита (смотрите в `validate.js`)
+//       evt.target.reset();
+//     })
+//     .catch((err) => {
+//       // в каждом запросе нужно ловить ошибку
+//       console.error(`Ошибка: ${err}`);
+//     })
+//     // в каждом запросе в `finally` нужно возвращать обратно начальный текст кнопки
+//     .finally(() => {
+//       renderLoading(false, submitButton, initialText);
+//     });
+// }
+
+// // пример оптимизации обработчика сабмита формы профиля
+// function handleProfileFormSubmit(evt) {
+//   // создаем функцию, которая возвращает промис, так как любой запрос возвращает его 
+//   function makeRequest() {
+//     // вот это позволяет потом дальше продолжать цепочку `then, catch, finally`
+//     return editProfile(popupName.value, popupProfession.value).then((userData) => {
+//       profileName.textContent = userData.name;
+//       profileProfession.textContent = userData.about;
+//     });
+//   }
+//   // вызываем универсальную функцию, передавая в нее запрос, событие и текст изменения кнопки (если нужен другой, а не `"Сохранение..."`)
+//   handleSubmit(makeRequest, evt);
+// }
