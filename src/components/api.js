@@ -1,5 +1,3 @@
-//import { link } from "./card";
-
 //создаем объект, чтобы адрес B заголовки был в нем, и не пришлось менять бы его в нескольких местах
 const config = {
   url: 'https://mesto.nomoreparties.co/v1/wbf-cohort-5',

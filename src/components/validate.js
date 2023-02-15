@@ -40,10 +40,9 @@ function setEventListener(formElement, config) {
   toggleButtonState(submitButtonElement, formElement.checkValidity(), config);
 
   formElement.addEventListener('reset', () => {
-    // `setTimeout` нужен для того, чтобы дождаться очищения формы (вызов уйдет в конце стэка) и только потом вызвать `toggleButtonState`
     setTimeout(() => {
        toggleButtonState(submitButtonElement, false, config);
-    }, 0); // достаточно указать 0 миллисекунд, чтобы после `reset` уже сработало действие
+    }, 0); 
   });
 
   formElement.addEventListener('submit', (e) => {

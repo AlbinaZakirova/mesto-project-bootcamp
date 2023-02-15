@@ -1,18 +1,26 @@
-import {fio, profession, profileSubtitle, profileTitle} from "./index";
-import {closePopup, openPopup} from './utils.js'
-
-export const editPopup = document.getElementById('profile-popup'); //попап редактирования профиля
-export const addPopup = document.getElementById('element-popup'); //попап добавления поста
-export const imagePopup = document.querySelector('.popup_background'); //popup фотографий
-export const avatarPopup = document.getElementById('avatar-popup');
-
-
-export const buttonOpenPopupProfile = document.querySelector('.profile__edit-button'); //кнопка открытия попапа редактирования профиля
-export const buttonOpenAddPopup = document.querySelector('.profile__add-button'); //кнопка открытия попапа добавления поста
-export const buttonOpenAvatarPopup = document.querySelector('.profile__edit-img'); //кнопка открытия попапа добавления поста
-
+import {
+  addPopup,
+  avatarPopup,
+  buttonOpenAddPopup,
+  buttonOpenAvatarPopup,
+  buttonOpenPopupProfile,
+  editPopup, fio,
+  imagePopup, profession, profileSubtitle, profileTitle
+} from "./constants";
 
 export {closePopupOverlay, closePopupEsc}
+
+//Функция открытия попапов 
+export function openPopup(popup) {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+}
+
+//Функция закрытие попапов
+export function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc)
+}
 
 //Функция закрытия попапов по кнопке
 function handleClosePopup(e, modal) {
@@ -43,18 +51,21 @@ export const openPopupProfile = popup => {
   profession.value = profileSubtitle.textContent;
 }
 
+// обработчики на кнопки закрытия попапов
 editPopup.addEventListener('click', (e) => handleClosePopup(e, editPopup));
 addPopup.addEventListener('click', (e) => handleClosePopup(e, addPopup));
 imagePopup.addEventListener('click', (e) => handleClosePopup(e, imagePopup));
 avatarPopup.addEventListener('click', (e) => handleClosePopup(e, avatarPopup));
 
 
+// обработчики на overlay закрытия попапов
 document.addEventListener('click', e => closePopupOverlay(e, editPopup));
 document.addEventListener('click', e => closePopupOverlay(e, addPopup));
 document.addEventListener('click', e => closePopupOverlay(e, imagePopup));
 document.addEventListener('click', e => closePopupOverlay(e, avatarPopup));
 
 
+// обработчики открытия попапов
 buttonOpenPopupProfile.addEventListener('click', () => openPopupProfile(editPopup))
 buttonOpenAddPopup.addEventListener('click', () => openPopup(addPopup))
 buttonOpenAvatarPopup.addEventListener('click',() => openPopup(avatarPopup))
