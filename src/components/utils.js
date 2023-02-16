@@ -1,19 +1,5 @@
-import {getAllInform} from "./api";
-import {addNewPost} from "./card";
 import {profileSubtitle, profileTitle} from "./constants";
 import {closePopup} from "./modal";
-
-export let userID = null;
-export function renderInitialCards() {
-  getAllInform()
-    .then(([dataCards, dataUser]) => {
-      userID = dataUser._id;
-      dataCards.reverse().forEach(addNewPost);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-}
 
 export function renderLoading(isLoading, button, buttonText = 'Сохранить', loadingText = 'Сохранение...') {
   if (isLoading) {
@@ -31,11 +17,13 @@ export function handleSubmit(request, evt, popup, loadingText = "Сохране�
 
   renderLoading(true, submitButton, initialText, loadingText);
   request()
-    .then(() => evt.target.reset())
+    .then(() => {
+      evt.target.reset();
+      closePopup(popup);
+    })
     .catch(err => console.error(`Ошибка: ${err}`))
     .finally(() => {
       renderLoading(false, submitButton, initialText);
-      setTimeout(() => closePopup(popup), 1500); 
     });
 }
 

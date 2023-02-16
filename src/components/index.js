@@ -4,19 +4,26 @@ import './form.js'
 import './api.js'
 
 import {enableValidation} from './validate.js'
-import {renderInitialCards, updateAvatar, updateProfile} from "./utils";
-import {getUserInfo} from "./api";
+import {updateAvatar, updateProfile} from "./utils";
+import {getAllInform} from "./api";
+import {addNewPost} from "./card";
+export let userID = null;
 
-//выводим информацию о профиле
-getUserInfo()
-  .then(res => {
-    updateProfile(res.name, res.about)
-    updateAvatar(res.avatar)
-  }).catch((error) => {
-  console.log(error);
-});
+//выводим карточки и информацию о профиле
+export function renderInitialCards() {
+  getAllInform()
+    .then(([dataCards, dataUser]) => {
 
-//выводим карточки
+      userID = dataUser._id;
+      dataCards.reverse().forEach(addNewPost);
+
+      updateProfile(dataUser.name, dataUser.about);
+      updateAvatar(dataUser.avatar);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+}
 renderInitialCards();
 
 const configSelector = {

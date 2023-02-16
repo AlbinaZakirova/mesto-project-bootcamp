@@ -1,5 +1,5 @@
 // все popup
-export const editPopup = document.getElementById('profile-popup'); //попап редактирования профиля
+export const editPopup = document.getElementById('profile-popup'); //попап редактирования профиля 
 export const addPopup = document.getElementById('element-popup'); //попап добавления поста
 export const imagePopup = document.querySelector('.popup_background'); //popup фотографий
 export const avatarPopup = document.getElementById('avatar-popup'); //popup изображения профиля

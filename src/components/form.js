@@ -8,9 +8,6 @@ function submitPostForm(evt) {
   function makeRequest() {
     return addCard({name: name.value, link: link.value})
       .then((res) => addNewPost(res))
-      .catch((error) => {
-        console.log(error);
-      })
   }
   handleSubmit(makeRequest, evt, addPopup);
 }
@@ -23,9 +20,6 @@ function submitProfileForm(evt) {
   function makeRequest() {
     return getEditProfile(fio.value, profession.value)
       .then(res => updateProfile(res.name, res.about))
-      .catch((error) => {
-        console.log(error);
-      });
   }
 
   handleSubmit(makeRequest, evt, editPopup);
@@ -33,19 +27,17 @@ function submitProfileForm(evt) {
 const profileForm = document.getElementById('profile-form');
 profileForm.addEventListener('submit', submitProfileForm);
 
-
+// функиця отправки формы изменения аватара профиля
 function submitAvatarForm(evt) {
-  const avatarLink = avatarForm.querySelector('.form__input_link_photo').value;
-
+  // const avatarLink = avatarForm.querySelector('.form__input_link_photo').value;
+  
   function makeRequest() {
-    return changeAvatar(avatarLink)
+    return changeAvatar(avatarLink.value)
       .then(res => updateAvatar(res.avatar))
-      .catch((error) => {
-        console.log(error);
-      })
   }
 
   handleSubmit(makeRequest, evt, avatarPopup);
 }
 const avatarForm = document.getElementById('avatar-form');
 avatarForm.addEventListener('submit', submitAvatarForm);
+const avatarLink = avatarForm.querySelector('.form__input_link_photo');

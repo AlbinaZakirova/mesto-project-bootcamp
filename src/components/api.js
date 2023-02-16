@@ -7,17 +7,10 @@ const config = {
   }
 }
 
-function onResponse(res) {
+function DoOnResponse(res) {
   return res.ok ? res.json() : res.json().then((data) => Promise.reject(data));
 }
 
-//4. Загрузка карточек с сервера                          
-export function getAllCards() {
-  return fetch(`${config.url}/cards`, {
-    method: "GET",
-    headers: config.headers
-  }).then(onResponse)
-}
 
 //5. Редактирование профиля                                 
 export function getEditProfile(fio, profession) {
@@ -30,7 +23,7 @@ export function getEditProfile(fio, profession) {
         about: profession
       }
     )
-  }).then(onResponse)
+  }).then(DoOnResponse)
 }
 
 //6. Добавление новой карточки                           
@@ -39,7 +32,7 @@ export function addCard(body) {
     method: "POST",
     headers: config.headers,
     body: JSON.stringify(body)
-  }).then(onResponse)
+  }).then(DoOnResponse)
 }
 
 
@@ -49,7 +42,7 @@ export function removeCard(cardId) {
     method: "DELETE",
     headers: config.headers
 
-  }).then(onResponse)
+  }).then(DoOnResponse)
 }
 
 
@@ -58,15 +51,24 @@ export function getUserInfo() {
   return fetch(`${config.url}/users/me`, {
     headers: config.headers
   })
-    .then(onResponse)
+    .then(DoOnResponse)
 }
+
+//4. Загрузка карточек с сервера                          
+export function getAllCards() {
+  return fetch(`${config.url}/cards`, {
+    method: "GET",
+    headers: config.headers
+  }).then(DoOnResponse)
+}
+
 
 //9. Лайки
 export function setLike(cardId, isLiked) {
   return fetch(`${config.url}/cards/likes/${cardId}`,{
     method: isLiked ? "DELETE" : "PUT",
     headers: config.headers
-  }).then(onResponse)
+  }).then(DoOnResponse)
 }
 
 //10. Обновление аватара пользователя
@@ -75,12 +77,13 @@ export function changeAvatar(link) {
     method: "PATCH",
     headers: config.headers,
     body: JSON.stringify({avatar: link})
-  }).then(onResponse)
+  }).then(DoOnResponse)
 }
 
 export function getAllInform() {                        
   return Promise.all([getAllCards(), getUserInfo()])
 }
+
 
 
 

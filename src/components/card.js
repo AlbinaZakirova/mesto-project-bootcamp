@@ -1,4 +1,4 @@
-import {userID} from "./utils";
+import {userID} from "./index";
 import {removeCard, setLike} from "./api";
 import {imagePopup} from "./constants";
 import {openPopup} from "./modal";

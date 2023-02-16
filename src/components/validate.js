@@ -48,7 +48,6 @@ function setEventListener(formElement, config) {
 
   formElement.addEventListener('submit', (e) => {
     e.preventDefault();
-    formElement.reset();
   });
 
   [...inputList].forEach((inputItem) => {

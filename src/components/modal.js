@@ -59,10 +59,10 @@ avatarPopup.addEventListener('click', (e) => handleClosePopup(e, avatarPopup));
 
 
 // обработчики на overlay закрытия попапов
-document.addEventListener('click', e => closePopupOverlay(e, editPopup));
-document.addEventListener('click', e => closePopupOverlay(e, addPopup));
-document.addEventListener('click', e => closePopupOverlay(e, imagePopup));
-document.addEventListener('click', e => closePopupOverlay(e, avatarPopup));
+editPopup.addEventListener('click', e => closePopupOverlay(e, editPopup));
+addPopup.addEventListener('click', e => closePopupOverlay(e, addPopup));
+imagePopup.addEventListener('click', e => closePopupOverlay(e, imagePopup));
+avatarPopup.addEventListener('click', e => closePopupOverlay(e, avatarPopup));
 
 
 // обработчики открытия попапов
