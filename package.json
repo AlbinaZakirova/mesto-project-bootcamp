@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/AlbinaZakirova/mesto-project-bootcamp/issues"
   },
-  "homepage": "https://github.com/AlbinaZakirova/mesto-project-bootcamp#readme",
+  "homepage": "https://github.com/AlbinaZakirova/mesto-project-bootcamp",
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
