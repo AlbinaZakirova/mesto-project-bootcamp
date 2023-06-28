@@ -18,7 +18,7 @@
 @media (max-width: 575px) {
   .close {
     width: 20px;
-    height: 20px;
+    /* height: 20px; */
     top: -36px;
     right: 0;
   }
