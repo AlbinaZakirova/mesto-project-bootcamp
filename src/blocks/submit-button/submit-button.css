@@ -16,7 +16,6 @@
 
 @media (max-width: 575px) {
   .submit-button {
-    background-image: url(../../images/SubmitButtonMobile.png);
     width: 238px;
     height: 46px;
   }

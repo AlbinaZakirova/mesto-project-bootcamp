@@ -30,7 +30,7 @@ function handleClosePopup(e, modal) {
   }
 }
 
-//функция  закрытия попапа через Esc
+//функция  закрытия попапа через Esc 
 function closePopupEsc(event) {
   if (event.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
